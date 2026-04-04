@@ -49,7 +49,7 @@ import { AuthService } from '../../core/services/auth.service';
         <div class="relative z-10">
           <!-- Logo -->
           <div class="flex items-center mb-12">
-            <img src="Trafiksol.png" alt="Trafiksol Logo" class="h-14 w-auto object-contain" style="filter: brightness(0) invert(1);" />
+            <img src="flow.png" alt="Trafiksol Logo" class="h-14 w-auto object-contain" style="filter: brightness(0) invert(1);" />
           </div>
 
           <h1 class="text-4xl font-bold text-white leading-tight mb-4">
@@ -83,7 +83,7 @@ import { AuthService } from '../../core/services/auth.service';
         <div class="w-full max-w-md animate-fade-in-up">
           <!-- Mobile logo -->
           <div class="lg:hidden flex items-center mb-8 justify-center">
-            <img src="Trafiksol.png" alt="Trafiksol Logo" class="h-12 w-auto object-contain" />
+            <img src="flow.png" alt="Trafiksol Logo" class="h-12 w-auto object-contain" />
           </div>
 
           <div class="bg-white rounded-2xl shadow-card-lg border border-surface-border p-8">

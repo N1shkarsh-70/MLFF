@@ -18,15 +18,18 @@ interface NavItem {
   template: `
     <div class="flex h-screen overflow-hidden bg-surface-light dark:bg-dark-bg transition-colors duration-300">
 
+      <!-- Mobile Backdrop -->
+      <div *ngIf="sidebarOpen()" (click)="sidebarOpen.set(false)" class="fixed inset-0 bg-gray-900/50 dark:bg-black/60 z-20 md:hidden backdrop-blur-sm transition-opacity duration-300"></div>
+
       <!-- ===== SIDEBAR ===== -->
       <aside
-        [class]="sidebarOpen() ? 'w-64' : 'w-16'"
-        class="sidebar-transition flex-shrink-0 bg-white dark:bg-dark-card border-r border-surface-border dark:border-dark-border flex flex-col z-30 relative"
+        [class]="sidebarOpen() ? 'translate-x-0 w-64' : '-translate-x-full md:translate-x-0 w-64 md:w-16'"
+        class="fixed md:relative inset-y-0 left-0 sidebar-transition flex-shrink-0 bg-white dark:bg-dark-card border-r border-surface-border dark:border-dark-border flex flex-col z-30 transition-transform duration-300 ease-in-out"
       >
         <!-- Logo -->
         <div class="h-16 flex items-center px-4 border-b border-surface-border dark:border-dark-border flex-shrink-0">
           <div class="flex items-center overflow-hidden">
-            <img src="Trafiksol.png" alt="Trafiksol Logo" class="h-9 w-auto object-contain flex-shrink-0" />
+            <img src="flow.png" alt="Trafiksol Logo" class="h-9 w-auto object-contain flex-shrink-0" />
           </div>
         </div>
 
@@ -114,16 +117,16 @@ interface NavItem {
           </button>
 
           <!-- Breadcrumb -->
-          <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-slate-400 flex-1">
-            <span class="text-gray-300 dark:text-slate-600">MLFF</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="flex items-center gap-1 sm:gap-2 text-sm text-gray-500 dark:text-slate-400 flex-1 min-w-0">
+            <span class="hidden sm:inline text-gray-300 dark:text-slate-600">MLFF</span>
+            <svg class="hidden sm:inline w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
-            <span class="font-medium text-gray-900 dark:text-white capitalize">{{ getCurrentPageName() }}</span>
+            <span class="font-medium text-gray-900 dark:text-white capitalize truncate">{{ getCurrentPageName() }}</span>
           </div>
 
           <!-- Right Controls -->
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-1 md:gap-2">
 
             <!-- Date/Time -->
             <div class="hidden md:block text-right mr-2">
@@ -265,6 +268,11 @@ export class ShellComponent {
   constructor(public auth: AuthService, public theme: ThemeService) {
     this.updateDateTime();
     setInterval(() => this.updateDateTime(), 1000);
+    
+    // Close sidebar by default on mobile
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      this.sidebarOpen.set(false);
+    }
   }
 
   updateDateTime(): void {

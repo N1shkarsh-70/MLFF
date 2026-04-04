@@ -19,12 +19,12 @@ interface KpiCard {
   template: `
     <div class="animate-fade-in-up">
       <!-- Page Header -->
-      <div class="page-header flex items-center justify-between">
+      <div class="page-header flex flex-col sm:flex-row sm:items-center justify-between items-start gap-4 mb-4">
         <div>
-          <h1 class="page-title">Dashboard</h1>
-          <p class="page-subtitle">Real-time overview of MLFF tolling operations · NH-48 Gurugram Plaza</p>
+          <h1 class="page-title text-xl sm:text-2xl">Dashboard</h1>
+          <p class="page-subtitle text-xs sm:text-sm mt-1 sm:mt-0">Real-time overview of MLFF tolling operations · NH-48 Gurugram Plaza</p>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
           <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-green-50 text-green-700 border border-green-200">
             <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             System Operational
@@ -61,7 +61,7 @@ interface KpiCard {
 
         <!-- Bar Chart - Hourly Transactions -->
         <div class="card p-5 lg:col-span-2 animate-fade-in-up delay-200">
-          <div class="flex items-center justify-between mb-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
             <div>
               <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Transaction Volume</h3>
               <p class="text-xs text-gray-500 mt-0.5">Hourly breakdown · Today</p>
@@ -114,7 +114,7 @@ interface KpiCard {
           </div>
 
           <!-- Legend -->
-          <div class="flex items-center gap-6 mt-3 pt-3 border-t border-surface-border dark:border-dark-border">
+          <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-6 mt-3 pt-3 border-t border-surface-border dark:border-dark-border">
             <div class="flex items-center gap-1.5">
               <div class="w-3 h-3 rounded-sm bg-primary-700"></div>
               <span class="text-xs text-gray-500">Transactions</span>
@@ -181,7 +181,7 @@ interface KpiCard {
 
         <!-- Revenue Trend Line Chart -->
         <div class="card p-5 lg:col-span-2 animate-fade-in-up delay-400">
-          <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center justify-between mb-4 gap-2">
             <div>
               <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Revenue Trend</h3>
               <p class="text-xs text-gray-500 mt-0.5">Last 7 days</p>
@@ -262,7 +262,7 @@ interface KpiCard {
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
         <!-- Recent Transactions -->
         <div class="card animate-fade-in-up delay-300">
-          <div class="flex items-center justify-between px-5 py-4 border-b border-surface-border dark:border-dark-border">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-surface-border dark:border-dark-border gap-2">
             <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Recent Transactions</h3>
             <a routerLink="/toll-transactions" class="text-xs text-primary-600 hover:text-primary-700 font-medium">View All →</a>
           </div>
@@ -292,7 +292,7 @@ interface KpiCard {
 
         <!-- System Alerts -->
         <div class="card animate-fade-in-up delay-400">
-          <div class="flex items-center justify-between px-5 py-4 border-b border-surface-border dark:border-dark-border">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-surface-border dark:border-dark-border gap-2">
             <h3 class="font-semibold text-gray-900 dark:text-white text-sm">System Alerts</h3>
             <span class="badge-failed text-xs"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>3 Active</span>
           </div>
