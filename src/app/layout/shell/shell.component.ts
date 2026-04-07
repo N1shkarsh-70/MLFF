@@ -29,7 +29,7 @@ interface NavItem {
         <!-- Logo -->
         <div class="h-16 flex items-center px-4 border-b border-surface-border dark:border-dark-border flex-shrink-0">
           <div class="flex items-center overflow-hidden">
-            <img src="flow.png" alt="Trafiksol Logo" class="h-9 w-auto object-contain flex-shrink-0" />
+            <img src="FLOW_LOGO3.png" alt="Trafiksol Logo" class="h-9 w-auto object-contain flex-shrink-0" />
           </div>
         </div>
 
